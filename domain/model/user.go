@@ -8,18 +8,19 @@ import (
 )
 
 type User struct {
-	ID         uuid.UUID  `json:"id"`
-	TenantID   *string    `json:"tenant_id,omitempty"`
-	Email      string     `json:"email"`
-	Username   string     `json:"username"`
-	Password   string     `json:"password"`
-	CreatedAt  time.Time  `json:"created_at"`
-	CreatedBy  *uuid.UUID `json:"created_by,omitempty"`
-	UpdatedAt  *time.Time `json:"updated_at,omitempty"`
-	UpdatedBy  *string    `json:"updated_by,omitempty"`
-	DeletedAt  *time.Time `json:"deleted_at,omitempty"`
-	DeletedBy  *string    `json:"deleted_by,omitempty"`
-	DocVersion int        `json:"doc_version"`
+	ID         uuid.UUID        `json:"id" db:"id"`
+	TenantID   *string          `json:"tenant_id,omitempty" db:"tenant_id"`
+	Email      string           `json:"email" db:"email"`
+	Username   string           `json:"username" db:"username"`
+	Password   string           `json:"password" db:"password"`
+	Status     constants.Status `json:"status" db:"status"`
+	CreatedAt  time.Time        `json:"created_at" db:"created_at"`
+	CreatedBy  *uuid.UUID       `json:"created_by,omitempty" db:"created_by"`
+	UpdatedAt  *time.Time       `json:"updated_at,omitempty" db:"updated_at"`
+	UpdatedBy  *string          `json:"updated_by,omitempty" db:"updated_by"`
+	DeletedAt  *time.Time       `json:"deleted_at,omitempty" db:"deleted_at"`
+	DeletedBy  *string          `json:"deleted_by,omitempty" db:"deleted_by"`
+	DocVersion int              `json:"doc_version" db:"doc_version"`
 }
 
 type UserFindParams struct {
