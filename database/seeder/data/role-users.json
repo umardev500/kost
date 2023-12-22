@@ -1,0 +1,10 @@
+[
+    {
+      "id": "role-user-1",
+      "user_id": "user-3",
+      "role_id": "role-2",
+      "status": "active",
+      "created_by": "user-2"
+    }
+  ]
+  

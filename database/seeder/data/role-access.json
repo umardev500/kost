@@ -1,0 +1,12 @@
+[
+    {
+      "id": "role-access-2",
+      "role_id": "role-2",
+      "module_id": "module-2",
+      "tenant_id": "tenant-1",
+      "permission": ["y", "n", "y"],
+      "status": "active",
+      "created_by": "user-2"
+    }
+  ]
+  

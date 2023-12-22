@@ -1,0 +1,33 @@
+[
+    {
+      "id": "detail-1",
+      "user_id": "user-1",
+      "full_name": "John Doe",
+      "dob": "1990-01-15",
+      "gender": "male",
+      "phone": "1234567890",
+      "avatar": "https://example.com/avatar1.jpg",
+      "created_by": "user-1"
+    },
+    {
+      "id": "detail-2",
+      "user_id": "user-2",
+      "full_name": "Jane Doe",
+      "dob": "1985-05-20",
+      "gender": "female",
+      "phone": "9876543210",
+      "avatar": "https://example.com/avatar2.jpg",
+      "created_by": "user-2"
+    },
+    {
+      "id": "detail-3",
+      "user_id": "user-3",
+      "full_name": "Alex Johnson",
+      "dob": "1998-12-03",
+      "gender": "male",
+      "phone": "5556667777",
+      "avatar": "https://example.com/avatar3.jpg",
+      "created_by": "user-3"
+    }
+  ]
+  

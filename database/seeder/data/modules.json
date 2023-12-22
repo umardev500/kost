@@ -1,0 +1,27 @@
+[
+    {
+      "id": "module-1",
+      "name": "Authentication",
+      "features": ["login", "register", "reset_password"],
+      "status": "active",
+      "level": "all",
+      "created_by": null
+    },
+    {
+      "id": "module-2",
+      "name": "User Management",
+      "features": ["create_user", "update_user", "delete_user"],
+      "status": "active",
+      "level": "all",
+      "created_by": null
+    },
+    {
+      "id": "module-3",
+      "name": "Reporting",
+      "features": ["generate_report", "view_report"],
+      "status": "inactive",
+      "level": "all",
+      "created_by": null
+    }
+  ]
+  

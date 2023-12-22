@@ -1,0 +1,23 @@
+[
+    {
+        "id": "role-1",
+        "name": "Administrator",
+        "tenant_id": "tenant-1",
+        "status": "active",
+        "created_by": "user-2"
+    },
+    {
+        "id": "role-2",
+        "name": "Editor",
+        "tenant_id": "tenant-1",
+        "status": "active",
+        "created_by": "user-2"
+    },
+    {
+        "id": "role-3",
+        "name": "Super Admin",
+        "tenant_id": null,
+        "status": "active",
+        "created_by": null
+    }
+]

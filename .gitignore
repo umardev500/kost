@@ -1,0 +1,9 @@
+# Air generated
+tmp
+.air.toml
+
+# Environtment
+.env
+
+# Examples of data
+database/migrations/examples

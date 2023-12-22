@@ -1,0 +1,18 @@
+[
+    {
+      "id": "kost-1",
+      "tenant_id": "tenant-1",
+      "name": "Comfortable Kost",
+      "description": "A cozy place with modern amenities.",
+      "photos": ["photo1.jpg", "photo2.jpg"],
+      "videos": ["video1.mp4"],
+      "province_id": "province-1",
+      "city_id": "city-1",
+      "subdistrict_id": "subdistrict-1",
+      "village_id": "village-1",
+      "zip_code": "12345",
+      "status": "active",
+      "created_by": "user-2"
+    }
+  ]
+  
