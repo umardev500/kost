@@ -1,6 +1,6 @@
 create table kosts (
-    id varchar(255) primary key,
-    tenant_id varchar(255) not null,
+    id uuid primary key,
+    tenant_id uuid not null,
     name varchar(255) not null,
     description text not null,
     photos jsonb not null,
@@ -12,11 +12,11 @@ create table kosts (
     zip_code varchar(10) not null,
     status status_enum default 'active'::status_enum,
     created_at timestamptz default current_timestamp,
-    created_by varchar(50),
+    created_by uuid,
     updated_at timestamptz,
-    updated_by varchar(255),
+    updated_by uuid,
     deleted_at timestamptz,
-    deleted_by varchar(255),
+    deleted_by uuid,
     doc_version int default 0,
     unique(tenant_id, name),
     foreign key (tenant_id)

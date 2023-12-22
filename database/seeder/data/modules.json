@@ -1,6 +1,6 @@
 [
     {
-      "id": "module-1",
+      "id": "c7e3c273-5fc3-4568-a23f-fb54f8badceb",
       "name": "Authentication",
       "features": ["login", "register", "reset_password"],
       "status": "active",
@@ -8,7 +8,7 @@
       "created_by": null
     },
     {
-      "id": "module-2",
+      "id": "938a39b1-f6cf-46fc-9c81-43a93edb1255",
       "name": "User Management",
       "features": ["create_user", "update_user", "delete_user"],
       "status": "active",
@@ -16,7 +16,7 @@
       "created_by": null
     },
     {
-      "id": "module-3",
+      "id": "9e66bb40-b725-4d0f-ac8f-4025067a15d6",
       "name": "Reporting",
       "features": ["generate_report", "view_report"],
       "status": "inactive",

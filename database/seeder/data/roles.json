@@ -1,20 +1,20 @@
 [
     {
-        "id": "role-1",
+        "id": "4ab43b29-4824-461e-b6cf-7a880a41bb83",
         "name": "Administrator",
-        "tenant_id": "tenant-1",
+        "tenant_id": "fbe8bf71-336f-496b-85d2-c4d6cea5e221",
         "status": "active",
-        "created_by": "user-2"
+        "created_by": "fbe8bf71-336f-496b-85d2-c4d6cea5e221"
     },
     {
-        "id": "role-2",
+        "id": "e565455b-fe16-4de2-a941-49226ad4b42f",
         "name": "Editor",
-        "tenant_id": "tenant-1",
+        "tenant_id": "fbe8bf71-336f-496b-85d2-c4d6cea5e221",
         "status": "active",
-        "created_by": "user-2"
+        "created_by": "fbe8bf71-336f-496b-85d2-c4d6cea5e221"
     },
     {
-        "id": "role-3",
+        "id": "c968ef0d-078e-4f04-856a-5b64cd917d72",
         "name": "Super Admin",
         "tenant_id": null,
         "status": "active",

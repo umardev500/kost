@@ -1,15 +1,15 @@
 create table users (
-    id varchar(255) primary key,
-    tenant_id varchar(255), -- null indicate that user made by platform
+    id uuid primary key,
+    tenant_id uuid, -- null indicate that user made by platform
     email varchar(50) not null,
     username varchar(50) not null,
     password varchar(255) not null,
     created_at timestamptz default current_timestamp,
-    created_by varchar(50), -- null indicate that user is self registration
+    created_by uuid, -- null indicate that user is self registration
     updated_at timestamptz,
-    updated_by varchar(255),
+    updated_by uuid,
     deleted_at timestamptz,
-    deleted_by varchar(255),
+    deleted_by uuid,
     doc_version int default 0,
     unique(email),
     unique(username),

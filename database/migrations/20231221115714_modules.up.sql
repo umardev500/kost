@@ -1,15 +1,15 @@
 create table modules (
-    id varchar(255) primary key,
+    id uuid primary key,
     name varchar(50) not null,
     features jsonb,
     status status_enum default 'active'::status_enum,
     level module_level not null,
     created_at timestamptz default current_timestamp,
-    created_by varchar(50),
+    created_by uuid,
     updated_at timestamptz,
-    updated_by varchar(255),
+    updated_by uuid,
     deleted_at timestamptz,
-    deleted_by varchar(255),
+    deleted_by uuid,
     doc_version int default 0
 );
 

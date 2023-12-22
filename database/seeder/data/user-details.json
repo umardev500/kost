@@ -1,33 +1,33 @@
 [
     {
-      "id": "detail-1",
-      "user_id": "user-1",
+      "id": "33cf6460-eec3-4612-9ce8-18e5f36d9631",
+      "user_id": "a6e2fc4e-32eb-42d7-ac80-74f702e82e61",
       "full_name": "John Doe",
       "dob": "1990-01-15",
       "gender": "male",
       "phone": "1234567890",
       "avatar": "https://example.com/avatar1.jpg",
-      "created_by": "user-1"
+      "created_by": "a6e2fc4e-32eb-42d7-ac80-74f702e82e61"
     },
     {
-      "id": "detail-2",
-      "user_id": "user-2",
+      "id": "5225b0f3-cfce-4ff9-87bf-b8ddb04e6649",
+      "user_id": "f169b547-cf97-4670-bf4c-2259e4665026",
       "full_name": "Jane Doe",
       "dob": "1985-05-20",
       "gender": "female",
       "phone": "9876543210",
       "avatar": "https://example.com/avatar2.jpg",
-      "created_by": "user-2"
+      "created_by": "f169b547-cf97-4670-bf4c-2259e4665026"
     },
     {
-      "id": "detail-3",
-      "user_id": "user-3",
+      "id": "d79c70c0-b1dc-41ae-aa21-74e2dbb44759",
+      "user_id": "6b3ff719-a66b-477d-9234-e4cdb9252d96",
       "full_name": "Alex Johnson",
       "dob": "1998-12-03",
       "gender": "male",
       "phone": "5556667777",
       "avatar": "https://example.com/avatar3.jpg",
-      "created_by": "user-3"
+      "created_by": "6b3ff719-a66b-477d-9234-e4cdb9252d96"
     }
   ]
   

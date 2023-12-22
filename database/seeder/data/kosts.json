@@ -1,7 +1,7 @@
 [
     {
-      "id": "kost-1",
-      "tenant_id": "tenant-1",
+      "id": "062eb748-8bd1-4bb9-98a1-cf03ea110114",
+      "tenant_id": "fbe8bf71-336f-496b-85d2-c4d6cea5e221",
       "name": "Comfortable Kost",
       "description": "A cozy place with modern amenities.",
       "photos": ["photo1.jpg", "photo2.jpg"],
@@ -12,7 +12,7 @@
       "village_id": "village-1",
       "zip_code": "12345",
       "status": "active",
-      "created_by": "user-2"
+      "created_by": "f169b547-cf97-4670-bf4c-2259e4665026"
     }
   ]
   
