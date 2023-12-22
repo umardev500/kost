@@ -9,7 +9,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
-	"github.com/umardev500/ekost/constants"
+	"github.com/umardev500/kost/constants"
 	"github.com/umardev500/kost/utils"
 )
 

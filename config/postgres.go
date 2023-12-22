@@ -10,7 +10,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"github.com/rs/zerolog/log"
-	"github.com/umardev500/ekost/constants"
+	"github.com/umardev500/kost/constants"
 )
 
 type Queries interface {

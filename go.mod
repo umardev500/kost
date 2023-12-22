@@ -13,7 +13,6 @@ require (
 	github.com/lib/pq v1.10.9
 	github.com/redis/go-redis/v9 v9.3.0
 	github.com/rs/zerolog v1.31.0
-	github.com/umardev500/ekost v0.0.0-20231219020610-c5f029818a18
 	golang.org/x/crypto v0.16.0
 	gopkg.in/mail.v2 v2.3.1
 )
@@ -32,6 +31,7 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
+	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect

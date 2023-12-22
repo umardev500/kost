@@ -2,8 +2,8 @@ package api
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/umardev500/ekost/application/handler/otp"
-	otpUc "github.com/umardev500/ekost/application/usecase/otp"
+	"github.com/umardev500/kost/application/handler/otp"
+	otpUc "github.com/umardev500/kost/application/usecase/otp"
 )
 
 func (a *Api) Otp(router fiber.Router) {
