@@ -4,15 +4,17 @@ import (
 	"context"
 
 	"github.com/rs/zerolog/log"
+	"github.com/umardev500/kost/constants"
 )
 
 type User struct {
-	ID        string  `json:"id"`
-	TenantID  *string `json:"tenant_id"`
-	Email     string  `json:"email"`
-	Username  string  `json:"username"`
-	Password  string  `json:"password"`
-	CreatedBy *string `json:"created_by"`
+	ID        string           `json:"id"`
+	TenantID  *string          `json:"tenant_id"`
+	Email     string           `json:"email"`
+	Username  string           `json:"username"`
+	Password  string           `json:"password"`
+	CreatedBy *string          `json:"created_by"`
+	Status    constants.Status `json:"status"`
 }
 
 func (s *Seeder) downUsers(ctx context.Context) (err error) {
@@ -48,8 +50,8 @@ func (s *Seeder) downUsers(ctx context.Context) (err error) {
 
 func (s *Seeder) SeedUsers(ctx context.Context) (err error) {
 	query := `
-	INSERT INTO users (id, tenant_id, email, username, password, created_by)
-	VALUES ($1, $2, $3, $4, $5, $6)
+	INSERT INTO users (id, tenant_id, email, username, password, status, created_by)
+	VALUES ($1, $2, $3, $4, $5, $6, $7)
 	`
 
 	db := s.tx.GetConn(ctx)
@@ -68,7 +70,7 @@ func (s *Seeder) SeedUsers(ctx context.Context) (err error) {
 	}
 
 	for _, user := range users {
-		_, err = stmt.ExecContext(ctx, user.ID, user.TenantID, user.Email, user.Username, user.Password, user.CreatedBy)
+		_, err = stmt.ExecContext(ctx, user.ID, user.TenantID, user.Email, user.Username, user.Password, user.Status, user.CreatedBy)
 		if err != nil {
 			log.Error().Msgf("Error inserting user data: %v", err)
 			return

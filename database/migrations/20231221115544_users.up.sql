@@ -4,6 +4,7 @@ create table users (
     email varchar(50) not null,
     username varchar(50) not null,
     password varchar(255) not null,
+    status status_enum default 'inactive'::status_enum,
     created_at timestamptz default current_timestamp,
     created_by uuid, -- null indicate that user is self registration
     updated_at timestamptz,
