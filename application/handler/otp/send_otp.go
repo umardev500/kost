@@ -11,12 +11,20 @@ import (
 func (oh *otpHandler) SendOtp(c *fiber.Ctx) (err error) {
 	var payload otp.OtpParams
 	if err = c.BodyParser(&payload); err != nil {
-		return utils.ErrorHandler(c, err, fiber.StatusBadRequest)
+		newErr := utils.NewError()
+		newErr.StatusCode = fiber.StatusBadRequest
+		newErr.Message = fiber.ErrBadGateway.Message
+
+		return utils.ErrorHandler(c, newErr)
 	}
 
 	// Validate
 	if err := oh.validate.Struct(payload); err != nil {
-		return utils.ErrorHandler(c, err, fiber.StatusUnprocessableEntity)
+		newErr := utils.NewError()
+		newErr.StatusCode = fiber.StatusUnprocessableEntity
+		newErr.Message = fiber.ErrUnprocessableEntity.Message
+
+		return utils.ErrorHandler(c, newErr)
 	}
 
 	params := otp.OtpParams{
