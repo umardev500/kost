@@ -7,9 +7,9 @@ import (
 )
 
 type Api struct {
-	validator *validator.Validate
-	storage   fiber.Storage
-	db        config.DB
+	validate *validator.Validate
+	storage  fiber.Storage
+	db       config.DB
 }
 
 func NewApi(
@@ -18,12 +18,12 @@ func NewApi(
 	db config.DB,
 ) *Api {
 	return &Api{
-		validator: v,
-		storage:   s,
-		db:        db,
+		validate: v,
+		storage:  s,
+		db:       db,
 	}
 }
 
 func (a *Api) Load(r fiber.Router) {
-
+	r.Route("otp", a.Otp)
 }
