@@ -34,5 +34,6 @@ type UserFilter struct {
 }
 
 type UserFind struct {
+	Params  UserFindParams
 	Filters UserFilter
 }
