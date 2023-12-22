@@ -1,28 +1,49 @@
 package utils
 
 import (
+	"fmt"
+	"time"
+
 	"github.com/gofiber/fiber/v2"
-	"github.com/umardev500/ekost/domain/model/errs"
-	"github.com/umardev500/ekost/domain/model/responses"
+	"github.com/google/uuid"
+	"github.com/umardev500/kost/domain/model"
 )
 
-func ErrorHandler(c *fiber.Ctx, err error, code int) error {
-	payload := responses.Err{
-		ID:      nil,
-		Code:    code,
+type CustomError struct {
+	ID         uuid.UUID
+	Message    interface{}
+	TimeStamp  time.Time
+	StatusCode int
+}
+
+func (e CustomError) Error() string {
+	return fmt.Sprintf("%s", e.Message)
+}
+
+func NewError() CustomError {
+	return CustomError{
+		ID:        uuid.New(),
+		TimeStamp: time.Now(),
+	}
+}
+
+func ErrorHandler(c *fiber.Ctx, err error) error {
+	id := uuid.New()
+	payload := model.Err{
+		ID:      &id,
+		Code:    500,
 		Success: false,
-		Message: "",
+		Message: fiber.ErrInternalServerError.Message,
 		Detail:  nil,
 	}
 
-	if customErr, ok := err.(errs.CustomError); ok {
+	if customErr, ok := err.(CustomError); ok {
 		payload.ID = &customErr.ID
 		payload.Code = customErr.StatusCode
 		payload.Message = customErr.Error()
 		return c.JSON(payload)
 	}
 
-	payload.Code = 500
 	payload.Message = fiber.ErrInternalServerError.Message
 	return c.JSON(payload)
 }
