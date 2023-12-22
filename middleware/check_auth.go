@@ -4,15 +4,13 @@ import (
 	"context"
 	"os"
 	"strings"
-	"time"
 
 	jwtware "github.com/gofiber/contrib/jwt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"github.com/umardev500/ekost/constants"
-	"github.com/umardev500/ekost/domain/model/errs"
-	"github.com/umardev500/ekost/utils"
+	"github.com/umardev500/kost/utils"
 )
 
 type checkAuthMiddleware struct {
@@ -60,7 +58,7 @@ func (cam *checkAuthMiddleware) CheckAuthSuccess(c *fiber.Ctx) (err error) {
 	ctx := context.WithValue(c.Context(), constants.CtxKeyTx, bearer)
 	err = cam.CheckAuthService(ctx, username)
 	if err != nil {
-		return utils.ErrorHandler(c, err, fiber.StatusInternalServerError)
+		return utils.ErrorHandler(c, err)
 	}
 
 	c.Locals("username", username)
@@ -82,38 +80,26 @@ func (cam *checkAuthMiddleware) CheckAuthService(ctx context.Context, u string) 
 	token, err := cam.storage.Get(u)
 	if err != nil {
 		id := uuid.New()
-		err = errs.CustomError{
-			ID:         id,
-			Message:    fiber.ErrInternalServerError.Message,
-			TimeStamp:  time.Now().UTC(),
-			StatusCode: fiber.StatusInternalServerError,
-		}
 		log.Error().Msgf("Error getting token [%s]", id)
 		return
 	}
 
 	if string(token) != currentToken {
 		id := uuid.New()
-		err = errs.CustomError{
-			ID:         id,
-			Message:    fiber.ErrUnauthorized.Message,
-			TimeStamp:  time.Now().UTC(),
-			StatusCode: fiber.StatusUnauthorized,
-		}
+		newErr := utils.NewError()
+		newErr.StatusCode = fiber.StatusUnauthorized
+		newErr.Message = fiber.ErrUnauthorized.Message
 		log.Error().Msgf("Can not access resources, invalid token user=%s [%s]", u, id)
-		return
+		return newErr
 	}
 
 	if token == nil {
 		id := uuid.New()
-		err = errs.CustomError{
-			ID:         id,
-			Message:    constants.ErrMsgTokenNotFound,
-			TimeStamp:  time.Now().UTC(),
-			StatusCode: fiber.StatusNotFound,
-		}
+		newErr := utils.NewError()
+		newErr.StatusCode = fiber.StatusNotFound
+		newErr.Message = fiber.ErrNotFound.Message
 		log.Error().Msgf("Token not found user=%s [%s]", u, id)
-		return
+		return newErr
 	}
 
 	log.Debug().Msgf("Check auth success for user=%s", u)

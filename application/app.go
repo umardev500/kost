@@ -8,10 +8,9 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
 	"github.com/rs/zerolog/log"
-	"github.com/umardev500/ekost/config/postgres"
-	"github.com/umardev500/ekost/storage"
 	"github.com/umardev500/kost/config"
 	"github.com/umardev500/kost/routes"
+	"github.com/umardev500/kost/storage"
 )
 
 type Application struct{}
@@ -26,7 +25,7 @@ func (a *Application) Start(ctx context.Context) (err error) {
 
 	rDB := config.NewRedis()
 	strg := storage.NewRedisStorage(rDB)
-	db := postgres.NewPostgres(ctx)
+	db := config.NewPostgres(ctx)
 	v := validator.New()
 	router := routes.NewRouter(app, strg, db, v)
 	router.Load()
