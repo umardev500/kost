@@ -12,6 +12,7 @@ import (
 )
 
 func init() {
+	log.Logger = log.With().Caller().Logger()
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
 }
 
