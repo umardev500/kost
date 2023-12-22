@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: #f3f5f9;
+        height: 100%;
+      }
+
+      .inner {
+        background-color: white;
+        max-width: 744px;
+        margin: auto;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0px 1px 4px 0px rgba(35, 21, 122, 0.08);
+      }
+
+      .info {
+        max-width: 744px;
+        margin: auto;
+        margin-top: 50px;
+      }
+
+      .otpNumber {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .footer {
+        margin-top: 35px;
+        line-height: 0.6;
+      }
+      .p {
+        font-size: 16px;
+      }
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner">
+        <h1>Hey, {{.Name}}</h1>
+        <div style="line-height: 0.5; margin-bottom: 25px">
+          <h2>Terima kasih sudah melakukan registrasi di ekost 👋</h2>
+          <p class="p" style="margin-top: 25px">
+            Harap verifikasi alamat email Anda dengan memasukan kode OTP di
+            bawah:
+          </p>
+        </div>
+        <div class="otpNumber">{{.Otp}}</div>
+        <div
+          class="p"
+          style="margin-top: 25px; border-bottom: 2px solid #f3f4f6"
+        >
+          <p>
+            Jika Anda tidak mendaftar ke ekost, abaikan email ini atau hubungi
+            kami di
+            <a
+              href="mailto:contact@gmail.com"
+              style="color: #fe6055; text-decoration: none"
+              >contact@example.com</a
+            >
+          </p>
+        </div>
+        <p class="p">
+          E-mail ini dibuat otomatis, mohon tidak membalas. Jika butuh bantuan,
+          silakan <a style="color: #fe6055" href="example.com">hubungi kami</a>.
+        </p>
+
+        <div class="footer p">
+          <p>Terima kasih</p>
+          <p>The ekost Team</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <!-- Footer -->
+        <div>
+          <div class="social">
+            <span>
+              <a href="github.com"> </a>
+            </span>
+            <span>
+              <a href="github.com"> </a>
+            </span>
+            <span>
+              <a href="github.com"> </a>
+            </span>
+          </div>
+          <div style="text-align: center">
+            <p class="p">
+              Use of our service and website is subject to our
+              <a
+                style="color: #fe6055; text-decoration: none"
+                href="example.com"
+                >Terms of Use</a
+              >
+              and
+              <a
+                style="color: #fe6055; text-decoration: none"
+                href="example.com"
+                >Privacy Policy</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
