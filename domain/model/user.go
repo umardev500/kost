@@ -34,6 +34,6 @@ type UserFilter struct {
 }
 
 type UserFind struct {
-	Params  UserFindParams
-	Filters UserFilter
+	Params  UserFindParams `json:"params"`
+	Filters UserFilter     `json:"filters"`
 }

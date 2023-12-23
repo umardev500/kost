@@ -26,4 +26,5 @@ func NewApi(
 
 func (a *Api) Load(r fiber.Router) {
 	r.Route("otp", a.Otp)
+	r.Route("users", a.User)
 }

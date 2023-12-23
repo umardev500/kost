@@ -78,7 +78,7 @@ func (t *Trx) WithTransaction(ctx context.Context, fn TxFn) (err error) {
 func (t *Trx) GetConn(ctx context.Context) (db Queries) {
 	db, ok := ctx.Value(constants.CtxKeyTx).(Queries)
 	if !ok {
-		log.Debug().Msgf("No database found in context, default is db used")
+		// log.Debug().Msgf("No database found in context, default is db used")
 		return t.db
 	}
 
