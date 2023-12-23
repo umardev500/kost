@@ -9,7 +9,6 @@ import (
 )
 
 func (uh *userHandler) Find(c *fiber.Ctx) (err error) {
-
 	// Paginations
 	var pagNum int64 = 1
 	var pageSize int64 = 10
@@ -26,11 +25,19 @@ func (uh *userHandler) Find(c *fiber.Ctx) (err error) {
 		Status: constants.Status(status),
 	}
 
-	// Payloads
-	payload, err := uh.uc.Find(c.Context(), model.UserFind{
+	search := c.Query("search")
+	params := model.UserFindParams{
+		Search: &search,
+	}
+
+	find := model.UserFind{
 		Pagination: pagination,
 		Filters:    filters,
-	})
+		Params:     params,
+	}
+
+	// Payloads
+	payload, err := uh.uc.Find(c.Context(), find)
 	if err != nil {
 		return utils.ErrorHandler(c, err)
 	}
