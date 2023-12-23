@@ -14,5 +14,6 @@ func (a *Api) User(r fiber.Router) {
 	uuc := userUc.NewUserUsecase(ur, tr)
 	uh := user.NewUserhandler(uuc)
 
+	r.Get("/", uh.Find)
 	r.Get("/:id", uh.FindByID)
 }

@@ -4,9 +4,9 @@ import "github.com/google/uuid"
 
 type Payload struct {
 	Data       interface{} `json:"data,omitempty" swaggertype:"object"`
-	PageNum    int64       `json:"page_num,omitempty"`
-	PageSize   int64       `json:"page_size,omitempty"`
-	PagesTotal int64       `json:"pages_total,omitempty"`
+	PageNum    int64       `json:"page"`
+	PageSize   int64       `json:"size"`
+	PagesTotal int64       `json:"pages"`
 }
 
 type OK struct {

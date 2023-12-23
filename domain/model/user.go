@@ -23,6 +23,11 @@ type User struct {
 	DocVersion int              `json:"doc_version" db:"doc_version"`
 }
 
+type UserFindAllData struct {
+	Users []User
+	Total int64
+}
+
 type UserFindParams struct {
 	ID       *uuid.UUID `json:"id"`
 	Username *string    `json:"username"`
@@ -34,6 +39,7 @@ type UserFilter struct {
 }
 
 type UserFind struct {
-	Params  UserFindParams `json:"params"`
-	Filters UserFilter     `json:"filters"`
+	Params     UserFindParams   `json:"params"`
+	Filters    UserFilter       `json:"filters"`
+	Pagination PaginationParams `json:"pagination"`
 }
