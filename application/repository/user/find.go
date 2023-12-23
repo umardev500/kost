@@ -10,10 +10,12 @@ import (
 )
 
 func (ur *userRepository) Find(ctx context.Context, find model.UserFind) (result model.UserFindAllData, err error) {
-	whereClause := " WHERE 1 = 1"
 	var params = find.Params
 	var filters = find.Filters
 	var args []interface{} = []interface{}{}
+
+	// Extended where clause
+	whereClause := " WHERE 1 = 1"
 
 	// Search
 	var search *string = params.Search
