@@ -3,6 +3,7 @@ module github.com/umardev500/kost
 go 1.21.5
 
 require (
+	github.com/go-faker/faker/v4 v4.2.0
 	github.com/go-playground/validator/v10 v10.16.0
 	github.com/gofiber/contrib/jwt v1.0.8
 	github.com/gofiber/fiber/v2 v2.51.0

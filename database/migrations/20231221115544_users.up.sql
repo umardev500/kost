@@ -20,9 +20,13 @@ create table users (
         on update cascade
 );
 
+CREATE extension IF NOT EXISTS pg_trgm;
+
+CREATE INDEX trgm_username_idx ON users USING GIN("username" gin_trgm_ops);
+CREATE INDEX trgm_email_idx ON users USING GIN("email" gin_trgm_ops);
+
 create index users_id_idx on users(id);
 create index users_tenant_id_idx on users(tenant_id);
-create index users_username_idx on users(username);
 
 CREATE TRIGGER users_update_trigger
 BEFORE UPDATE ON users

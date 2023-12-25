@@ -2,7 +2,11 @@ package seeder
 
 import (
 	"context"
+	"fmt"
+	"math/rand"
 
+	"github.com/go-faker/faker/v4"
+	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"github.com/umardev500/kost/constants"
 )
@@ -68,6 +72,23 @@ func (s *Seeder) SeedUsers(ctx context.Context) (err error) {
 		log.Error().Msgf("Error getting user data: %v", err)
 		return
 	}
+
+	// Append dummy data
+	for i := 0; i <= 9_000; i++ {
+		userID := uuid.New().String()
+		users = append(users, User{
+			ID:        uuid.New().String(),
+			Email:     faker.Email(),
+			TenantID:  nil,
+			Username:  fmt.Sprintf("%s%d", faker.Name(), i),
+			Password:  fmt.Sprintf("password%d", rand.Int()),
+			Status:    constants.StatusActive,
+			CreatedBy: &userID,
+		})
+	}
+
+	fmt.Println(len(users))
+	// End of appending dummy data
 
 	for _, user := range users {
 		_, err = stmt.ExecContext(ctx, user.ID, user.TenantID, user.Email, user.Username, user.Password, user.Status, user.CreatedBy)

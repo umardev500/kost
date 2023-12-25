@@ -27,7 +27,7 @@ func main() {
 	defer db.Close()
 	trx := config.NewTransaction(db)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 100*time.Second)
 	defer cancel()
 
 	caller(trx, ctx)

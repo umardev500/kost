@@ -7,3 +7,4 @@ tmp
 
 # Examples of data
 database/migrations/examples
+database/debug
