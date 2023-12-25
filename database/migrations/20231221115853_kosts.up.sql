@@ -25,6 +25,9 @@ create table kosts (
         on update cascade
 );
 
+create index kosts_id_idx on kosts(id);
+create index kosts_tenant_id_idx on kosts(tenant_id);
+
 CREATE TRIGGER kosts_update_trigger
 BEFORE UPDATE ON kosts
 FOR EACH ROW

@@ -20,6 +20,10 @@ create table users (
         on update cascade
 );
 
+create index users_id_idx on users(id);
+create index users_tenant_id_idx on users(tenant_id);
+create index users_username_idx on users(username);
+
 CREATE TRIGGER users_update_trigger
 BEFORE UPDATE ON users
 FOR EACH ROW

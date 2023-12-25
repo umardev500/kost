@@ -25,6 +25,8 @@ create table tenants (
     unique(subdomain)
 );
 
+create index tenants_id_idx on tenants(id);
+
 CREATE TRIGGER tenants_update_trigger
 BEFORE UPDATE ON tenants
 FOR EACH ROW

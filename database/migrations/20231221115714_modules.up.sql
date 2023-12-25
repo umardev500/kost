@@ -13,6 +13,8 @@ create table modules (
     doc_version int default 0
 );
 
+create index modules_id_idx on modules(id);
+
 CREATE TRIGGER modules_update_trigger
 BEFORE UPDATE ON modules
 FOR EACH ROW

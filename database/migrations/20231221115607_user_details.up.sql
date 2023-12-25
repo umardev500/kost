@@ -20,6 +20,8 @@ create table user_details (
         on update cascade
 );
 
+create index user_details_user_id_idx on user_details(user_id);
+
 CREATE TRIGGER user_details_update_trigger
 BEFORE UPDATE ON user_details
 FOR EACH ROW

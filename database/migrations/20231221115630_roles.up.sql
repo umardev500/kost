@@ -17,6 +17,9 @@ create table roles (
         on update cascade
 );
 
+create index roles_id_idx on roles(id);
+create index roles_tenant_id_idx on roles(tenant_id);
+
 CREATE TRIGGER roles_update_trigger
 BEFORE UPDATE ON roles
 FOR EACH ROW
