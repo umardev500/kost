@@ -14,7 +14,7 @@ func GetPagesTotal(countTotal, pageSize int64) int64 {
 	var pagesTotal int64 = countTotal / pageSize
 	remainder := (countTotal % pageSize)
 	if remainder != 0 {
-		pagesTotal = 1
+		pagesTotal = pagesTotal + 1
 	}
 
 	return pagesTotal
