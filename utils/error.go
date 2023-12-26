@@ -6,6 +6,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
+	"github.com/umardev500/kost/constants"
 	"github.com/umardev500/kost/domain/model"
 )
 
@@ -39,11 +40,26 @@ func ErrorHandler(c *fiber.Ctx, err error) error {
 
 	if customErr, ok := err.(CustomError); ok {
 		payload.ID = &customErr.ID
-		payload.Code = customErr.StatusCode
-		payload.Message = customErr.Error()
+		if customErr.StatusCode > 0 {
+			payload.Code = customErr.StatusCode
+		}
+		if customErr.Message != nil {
+			payload.Message = customErr.Error()
+		}
 		return c.JSON(payload)
 	}
 
 	payload.Message = fiber.ErrInternalServerError.Message
 	return c.JSON(payload)
+}
+
+func ErrAffected(affected int64, err error) error {
+	if err != nil {
+		return err
+	}
+
+	if affected < 1 {
+		return constants.ErrNotAffected
+	}
+	return nil
 }
