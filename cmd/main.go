@@ -9,6 +9,7 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/umardev500/kost/application"
+	"github.com/umardev500/kost/database/migrations"
 )
 
 func init() {
@@ -23,6 +24,8 @@ func main() {
 
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, os.Kill)
 	defer cancel()
+
+	migrations.NewMigration(ctx)
 
 	app := application.NewApplication()
 	err := app.Start(ctx)
