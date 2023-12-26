@@ -30,7 +30,7 @@ func (a *Application) Start(ctx context.Context) (err error) {
 	router := routes.NewRouter(app, strg, db, v)
 	router.Load()
 
-	func() {
+	go func() {
 		port := os.Getenv("APP_PORT")
 		msg := fmt.Sprintf("🚀 Server is running on port %s", port)
 		log.Info().Msg(msg)
